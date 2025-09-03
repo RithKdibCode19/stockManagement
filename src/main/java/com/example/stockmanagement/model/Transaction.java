@@ -1,11 +1,10 @@
 package com.example.stockmanagement.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
+
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "tbl_transaction")
 public class Transaction {
@@ -23,6 +22,8 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private Users user;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     public enum TransactionType {
         INBOUND, OUTBOUND
